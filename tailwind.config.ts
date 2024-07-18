@@ -14,6 +14,10 @@ const config: Config = {
         "dark-blue": "#223C77",
         "dark-orange": "#F7991D",
       },
+      padding: {
+        horizontal: "clamp(20px, 6.43vw, 111px)", // min 20px, max 111px
+        vertical: "clamp(20px, 6.43vw, 111px)", // min 20px, max 111px
+      },
     },
   },
   plugins: [],

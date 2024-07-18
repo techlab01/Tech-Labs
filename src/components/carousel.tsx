@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { animateCarousel, animateSingleCard, services } from "../utils";
 
-const Carousel = () => {
+const CarouselComponent = () => {
   const [currentIndex, setCurrentIndex] = useState(2);
   const [isMinimized, setIsMinimized] = useState(false);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -51,11 +51,11 @@ const Carousel = () => {
     <div
       className={`relative flex h-screen w-full flex-col items-center justify-center`}
     >
-      <h1 className={`text-center text-dark-blue text-3xl font-bold`}>
+      <p className="text-dark-blue font-bold text-center text-3xl md:text-6xl">
         Our Services
-      </h1>
+      </p>
       <div
-        className={`relative flex h-[80vh] w-full items-center justify-center overflow-hidden`}
+        className={`relative flex h-[70vh] w-full items-center justify-center overflow-hidden`}
         style={{ perspective: "1000px" }}
       >
         {services.map((news, index) => (
@@ -69,8 +69,8 @@ const Carousel = () => {
             style={{
               width: isMinimized
                 ? index === currentIndex
-                  ? "350px"
-                  : "250px"
+                  ? "300px"
+                  : "200px"
                 : index === currentIndex
                 ? "415px"
                 : "300px",
@@ -101,7 +101,7 @@ const Carousel = () => {
               alt="left icon"
               width={20}
               height={20}
-              className="absolute left-1 top-1/2 h-10 w-10 cursor-pointer"
+              className="absolute -left-2 top-1/2 h-10 w-10 cursor-pointer"
               onClick={() =>
                 rotateCarousel(
                   (currentIndex - 1 + services.length) % services.length
@@ -113,7 +113,7 @@ const Carousel = () => {
               alt="right icon"
               width={20}
               height={20}
-              className="absolute right-1 top-1/2 h-10 w-10 cursor-pointer"
+              className="absolute -right-2 top-1/2 h-10 w-10 cursor-pointer"
               onClick={() =>
                 rotateCarousel(
                   (currentIndex - 1 + services.length) % services.length
@@ -138,4 +138,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default CarouselComponent;

@@ -16,7 +16,7 @@ export const services = [
   },
   {
     id: 4,
-    src: "/services/digitalLibrary.jpeg",
+    src: "/services/digital-library.jpeg",
     title: "Digital Library",
   },
   {
@@ -36,7 +36,7 @@ export const services = [
   },
   {
     id: 8,
-    src: "/services/smartClassroom.jpeg",
+    src: "/services/smart-classroom.jpeg",
     title: "Smart Classroom",
   },
   {
@@ -64,4 +64,13 @@ export const brandService = [
   {
     src: "/brandServices/service4.svg",
   },
+];
+
+export const nextGenService = [
+  "Child Friendly Furnitures",
+  "Sports Equipments",
+  "Gym Equipments",
+  "Outdoor Playing Equipments",
+  "Wall Paintings",
+  "Drinking Water",
 ];

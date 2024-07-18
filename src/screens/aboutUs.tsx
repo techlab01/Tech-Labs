@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef } from "react";
 import CustomSection from "../section/section";
-import { PADDING } from "../utils";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -25,7 +24,11 @@ const images = [
 
 const loopedImages = [...images, ...images];
 
-const Three = () => {
+type AboutUsProps = {
+  id: string;
+};
+
+const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -41,7 +44,7 @@ const Three = () => {
       });
 
       if (container) {
-        const totalHeight = container.scrollHeight / 2; // Total height of half of the images
+        const totalHeight = container.scrollHeight / 2;
         gsap.set(container, {
           y: 0,
         });
@@ -54,20 +57,43 @@ const Three = () => {
           },
           repeat: -1,
         });
+
+        const resizeHandler = () => {
+          gsap.set(container, { clearProps: "all" });
+          const newTotalHeight = container.scrollHeight / 2;
+          gsap.set(container, {
+            y: 0,
+          });
+          gsap.to(container, {
+            duration: 20,
+            ease: "none",
+            y: -newTotalHeight,
+            modifiers: {
+              y: gsap.utils.unitize((y) => parseFloat(y) % newTotalHeight),
+            },
+            repeat: -1,
+          });
+        };
+
+        window.addEventListener("resize", resizeHandler);
+        return () => {
+          title.kill();
+          window.removeEventListener("resize", resizeHandler);
+        };
       }
-      return () => {
-        title.kill();
-      };
     },
     { scope: containerRef }
   );
 
   return (
     <CustomSection
-      className={`${PADDING.horizontalPadding} ${PADDING.verticalPadding} flex flex-col lg:flex-row justify-center h-screen gap-10 lg:gap-20`}
+      className={`px-horizontal flex flex-col lg:flex-row justify-center h-[140vh] md:h-screen gap-10 lg:gap-20`}
     >
-      <div className="flex w-full lg:w-1/2 justify-center text-xl flex-col gap-4 lg:gap-10 items-center">
-        <p className="text-base lg:text-xl">
+      <div
+        id={id}
+        className="flex w-full lg:w-1/2 justify-center text-justify py-10 md:py-20 text-base md:text-2xl flex-col gap-4 lg:gap-10 items-center"
+      >
+        <p>
           We enhance educational experiences with innovative solutions,
           providing STEM kits, robotics, ATL labs, ICT labs, smart classrooms,
           vocational labs, and science labs (Physics, Chemistry, Biology). We
@@ -75,7 +101,7 @@ const Three = () => {
           students have access to the latest tools and technologies for
           comprehensive learning and development.
         </p>
-        <p className="text-base lg:text-xl">
+        <p>
           Tech Lab will help PM SHRI schools achieve their vision by providing
           state-of-the-art labs and innovative educational tools that foster
           lifelong learning, critical thinking, and adaptability, thereby
@@ -86,7 +112,7 @@ const Three = () => {
       <div className="wrapper relative mt-4 overflow-hidden flex flex-col w-full lg:w-1/2 gap-10 justify-center items-start">
         <div
           ref={containerRef}
-          className="boxes flex flex-col w-full space-y-4 lg:space-y-9"
+          className="flex flex-col w-full space-y-4 lg:space-y-9"
         >
           {loopedImages.map((item, index) => (
             <Image
@@ -104,4 +130,4 @@ const Three = () => {
   );
 };
 
-export default Three;
+export default AboutUs;

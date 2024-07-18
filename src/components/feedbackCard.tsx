@@ -1,39 +1,39 @@
-"use client";
 import React from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
 
-interface BenefitCardProps {
-  title: string;
-  description: string;
-  icon: string;
-  className?: string;
+interface FeedbackProps {
+  name?: string;
+  description?: string;
+  image: string;
+  school?: string;
 }
 
-const BenefitCard: React.FC<BenefitCardProps> = ({
-  title,
+const FeedbackCard: React.FC<FeedbackProps> = ({
+  name,
   description,
-  icon,
-  className,
+  image,
+  school,
 }) => {
   return (
-    <div
-      className={`relative flex min-h-64 w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-[30px] bg-[#EFF8C9] p-16 text-black ${className}`}
-    >
-      <div
-        className="absolute h-[200%] w-[200%] scale-0 transform rounded-full bg-dark-blue transition-all duration-700"
-        style={{ right: 0, top: "50%", transform: "scale(0)" }}
-      ></div>
-      <Image
-        src={icon}
-        alt={`${icon}-alt`}
-        width={50}
-        height={50}
-        className="relative z-10 h-24 w-24 md:h-24 md:w-24"
-      />
-      <div className={`text-base relative z-10 text-center`}>{title}</div>
-      <div className={`text-base px-3 text-center`}>{description}</div>
+    <div className="relative flex flex-col items-center justify-start gap-4 text-white rounded-[30px] bg-dark-blue p-8 feedback-card">
+      <div className="absolute -top-10 z-20 flex justify-center w-full">
+        <div className="relative h-28 w-28">
+          <Image
+            src={image}
+            alt={`${image}-alt`}
+            layout="fill"
+            className="rounded-full object-cover border-4 border-white"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col items-center text-center mt-16">
+        <div className="text-xl sm:text-2xl">{name}</div>
+        <div className="sm:text-lg text-md mb-2">{school}</div>
+        <div className="sm:text-base text-sm">{description}</div>
+      </div>
     </div>
   );
 };
 
-export default BenefitCard;
+export default FeedbackCard;
