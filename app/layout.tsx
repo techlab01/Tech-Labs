@@ -16,6 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta
+        name="google-site-verification"
+        content="x-nKKDa2BWzE7oqDSujJnZIUakcftuv10XacrspVaH0"
+      />
       <body className={inter.className}>{children}</body>
     </html>
   );

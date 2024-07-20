@@ -1,9 +1,11 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import CustomSection from "../section/section";
 import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   "/aboutImage/1.jpeg",
@@ -22,77 +24,63 @@ const images = [
   "/aboutImage/15.jpeg",
 ];
 
-const loopedImages = [...images, ...images];
-
 type AboutUsProps = {
   id: string;
 };
 
 const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      const container = containerRef.current;
-      const title = gsap.from(".titleParallax", {
-        duration: 2,
-        opacity: 0,
-        yPercent: 50,
-        ease: "circ",
-        delay: 0,
-        stagger: 0.06,
+  useEffect(() => {
+    const additionalY = { val: 0 };
+    let offset = 0;
+    const col = imageRef.current;
+
+    if (col) {
+      // Check if 'col' is not null
+      const images = col.childNodes;
+
+      // DUPLICATE IMAGES FOR LOOP
+      images.forEach((image) => {
+        let clone = image.cloneNode(true);
+        col.appendChild(clone);
       });
 
-      if (container) {
-        const totalHeight = container.scrollHeight / 2;
-        gsap.set(container, {
-          y: 0,
-        });
-        gsap.to(container, {
-          duration: 20,
-          ease: "none",
-          y: -totalHeight,
-          modifiers: {
-            y: gsap.utils.unitize((y) => parseFloat(y) % totalHeight),
-          },
-          repeat: -1,
-        });
+      // SET ANIMATION
+      images.forEach((item) => {
+        if (item.parentElement) {
+          // Check if 'item.parentElement' is not null
+          let columnHeight = item.parentElement.clientHeight;
 
-        const resizeHandler = () => {
-          gsap.set(container, { clearProps: "all" });
-          const newTotalHeight = container.scrollHeight / 2;
-          gsap.set(container, {
-            y: 0,
-          });
-          gsap.to(container, {
-            duration: 20,
-            ease: "none",
-            y: -newTotalHeight,
-            modifiers: {
-              y: gsap.utils.unitize((y) => parseFloat(y) % newTotalHeight),
-            },
+          gsap.to(item, {
+            y: "-=" + Number(columnHeight / 2),
+            duration: 40,
             repeat: -1,
+            ease: "none",
+            modifiers: {
+              y: gsap.utils.unitize((y) => {
+                offset += additionalY.val;
+                y = (parseFloat(y) + offset) % -Number(columnHeight * 0.5);
+                return y;
+              }),
+            },
           });
-        };
-
-        window.addEventListener("resize", resizeHandler);
-        return () => {
-          title.kill();
-          window.removeEventListener("resize", resizeHandler);
-        };
-      }
-    },
-    { scope: containerRef }
-  );
+        }
+      });
+    }
+  }, []);
 
   return (
     <CustomSection
-      className={`px-horizontal flex flex-col lg:flex-row justify-center h-[140vh] md:h-screen gap-10 lg:gap-20`}
+      className={`px-horizontal flex flex-col lg:flex-row justify-center h-[150vh] md:h-screen gap-10 lg:gap-20`}
     >
       <div
         id={id}
-        className="flex w-full lg:w-1/2 justify-center text-justify py-10 md:py-20 text-base md:text-2xl flex-col gap-4 lg:gap-10 items-center"
+        className="flex w-full lg:w-1/2 justify-center text-justify py-10 md:py-20 text-base md:text-2xl flex-col gap-4 lg:gap-10 items-start"
       >
+        <p className="text-dark-blue font-bold text-3xl md:text-6xl">
+          About <span className="text-dark-orange">Us</span>
+        </p>
         <p>
           We enhance educational experiences with innovative solutions,
           providing STEM kits, robotics, ATL labs, ICT labs, smart classrooms,
@@ -110,19 +98,18 @@ const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
         </p>
       </div>
       <div className="wrapper relative mt-4 overflow-hidden flex flex-col w-full lg:w-1/2 gap-10 justify-center items-start">
-        <div
-          ref={containerRef}
-          className="flex flex-col w-full space-y-4 lg:space-y-9"
-        >
-          {loopedImages.map((item, index) => (
-            <Image
-              src={item}
-              key={index}
-              alt="image"
-              width={200}
-              height={200}
-              className="h-full w-full object-contain rounded-3xl"
-            />
+        <div ref={imageRef} className="boxes flex flex-col w-full gap-10">
+          {images.map((item, index) => (
+            <div key={index} className="h-full w-full">
+              <Image
+                src={item}
+                key={index}
+                alt="image"
+                width={200}
+                height={200}
+                className="h-full w-full object-contain rounded-3xl"
+              />
+            </div>
           ))}
         </div>
       </div>
