@@ -5,7 +5,7 @@ import Image from "next/image";
 const Reach = () => {
   return (
     <CustomSection
-      className={`px-horizontal flex flex-col md:flex-row items-center justify-center h-full gap-10`}
+      className={`px-horizontal py-vertical flex flex-col md:flex-row items-center justify-center h-full gap-10`}
     >
       <div className="flex w-full md:w-1/2 justify-center items-center">
         <Image

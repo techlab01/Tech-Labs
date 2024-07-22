@@ -1,11 +1,8 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import CustomSection from "../section/section";
 import Image from "next/image";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   "/aboutImage/1.jpeg",
@@ -31,41 +28,27 @@ type AboutUsProps = {
 const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
   const imageRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const additionalY = { val: 0 };
-    let offset = 0;
+  useLayoutEffect(() => {
     const col = imageRef.current;
 
     if (col) {
-      // Check if 'col' is not null
-      const images = col.childNodes;
+      const originalImages = Array.from(col.children);
+      const totalHeight = col.scrollHeight;
 
-      // DUPLICATE IMAGES FOR LOOP
-      images.forEach((image) => {
-        let clone = image.cloneNode(true);
+      // Clone images to ensure continuous loop
+      originalImages.forEach((image) => {
+        const clone = image.cloneNode(true);
         col.appendChild(clone);
       });
 
-      // SET ANIMATION
-      images.forEach((item) => {
-        if (item.parentElement) {
-          // Check if 'item.parentElement' is not null
-          let columnHeight = item.parentElement.clientHeight;
-
-          gsap.to(item, {
-            y: "-=" + Number(columnHeight / 2),
-            duration: 40,
-            repeat: -1,
-            ease: "none",
-            modifiers: {
-              y: gsap.utils.unitize((y) => {
-                offset += additionalY.val;
-                y = (parseFloat(y) + offset) % -Number(columnHeight * 0.5);
-                return y;
-              }),
-            },
-          });
-        }
+      gsap.to(col, {
+        y: `-=${totalHeight}`,
+        duration: 40,
+        repeat: -1,
+        ease: "none",
+        modifiers: {
+          y: (y) => (parseFloat(y) % totalHeight) + "px",
+        },
       });
     }
   }, []);
@@ -98,7 +81,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ id }) => {
         </p>
       </div>
       <div className="wrapper relative mt-4 overflow-hidden flex flex-col w-full lg:w-1/2 gap-10 justify-center items-start">
-        <div ref={imageRef} className="boxes flex flex-col w-full gap-10">
+        <div ref={imageRef} className="flex h-full flex-col w-full gap-10">
           {images.map((item, index) => (
             <div key={index} className="h-full w-full">
               <Image

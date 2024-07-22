@@ -9,7 +9,7 @@ type ContactProps = {
 const Contact: React.FC<ContactProps> = ({ id }) => {
   return (
     <CustomSection
-      className={`px-horizontal flex py-20 md:py-40 flex-col text-xl sm:text-2xl text-dark-blue font-semibold items-start lg:flex-col lg:items-center justify-center h-full w-full gap-20`}
+      className={`px-horizontal py-vertical flex flex-col text-xl sm:text-2xl text-dark-blue font-semibold items-start lg:flex-col lg:items-center justify-center h-full w-full gap-20`}
     >
       <div
         id={id}

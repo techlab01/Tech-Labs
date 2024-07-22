@@ -10,7 +10,7 @@ type ServicesProps = {
 const Services: React.FC<ServicesProps> = ({ id }) => {
   return (
     <CustomSection
-      className={`px-horizontal py-10 flex flex-col items-start lg:items-center justify-center lg:h-screen h-full w-full gap-20`}
+      className={`px-horizontal py-vertical flex flex-col items-start lg:items-center justify-center h-full w-full gap-20`}
     >
       <p
         id={id}

@@ -9,10 +9,10 @@ type CarouselProps = {
 
 const Carousel: React.FC<CarouselProps> = ({ id }) => {
   return (
-    <CustomSection className="px-horizontal flex h-screen w-full items-center justify-center">
+    <CustomSection className="px-horizontal py-vertical flex h-full w-full items-center justify-center">
       <div
         id={id}
-        className="flex h-screen w-[100vw] items-center justify-center"
+        className="flex h-full w-[100vw] items-center justify-center"
       >
         <CarouselComponent />
       </div>

@@ -13,7 +13,7 @@ const Hero = () => {
 
   return (
     <CustomSection
-      className={`px-horizontal py-10 flex flex-col items-start lg:flex-row lg:items-center justify-center lg:h-screen h-full w-full gap-10 lg:gap-20`}
+      className={`px-horizontal py-vertical flex flex-col items-start lg:flex-row lg:items-center justify-center h-full w-full gap-10 lg:gap-20`}
     >
       <div className="flex flex-col w-full lg:w-[30%] gap-2 items-start">
         <div className="flex gap-2 py-5 lg:hidden">

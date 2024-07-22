@@ -49,7 +49,7 @@ const CarouselComponent = () => {
 
   return (
     <div
-      className={`relative flex h-screen w-full flex-col items-center justify-center`}
+      className={`relative flex h-full w-full flex-col gap-10 items-center justify-center`}
     >
       <p className="text-dark-blue font-bold text-center text-3xl md:text-6xl">
         Our Services

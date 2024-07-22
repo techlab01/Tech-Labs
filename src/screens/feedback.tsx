@@ -10,7 +10,7 @@ const Feedback = () => {
   const hiddenFeedbacks = feedbacks.slice(3, 6);
 
   return (
-    <CustomSection className="px-horizontal py-10 flex flex-col h-full items-center justify-center">
+    <CustomSection className="px-horizontal py-vertical flex flex-col h-full items-center justify-center">
       <p className="text-dark-blue font-bold text-center text-3xl md:text-6xl">
         What Peoples Say <span className="text-dark-orange">About Us</span>
       </p>
