@@ -1,4 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.screen-max-width {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  position: relative;
+  max-width: 1320px;
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .common-padding {
+    @apply sm:py-32 sm:px-10 py-20 px-10;
+  }
+
+  .nav-height {
+    @apply h-full md:h-[calc(100vh-60px)];
+  }
+
+  .title-text {
+    @apply text-left font-semibold text-3xl md:text-5xl lg:text-7xl text-orange;
+  }
+
+  .header-1 {
+    @apply font-semibold text-[2.25rem] leading-[2.875rem]     /* Base font size 36px, line height 46px (approximately 1.27) */
+                        md:text-[2.75rem] md:leading-[3.75rem] /* Medium screen size: font size 44px, line height 60px */
+                        lg:text-[4rem] lg:leading-[5rem]       /* Large screen size: font size 64px, line height 80px */
+                        xl:text-[4rem] xl:leading-[4.5rem]; /* Extra Large screen size: Adjusted as needed */
+  }
+
+  .text-1 {
+    @apply text-[1.25rem] leading-[1.5rem]         /* Base font size 20px, line height 24px (1.2 line-height ratio) */
+           md:text-[1.75rem] md:leading-[2.25rem]  /* Medium screen size: font size 28px, line height 36px */
+           lg:text-[1.875rem] lg:leading-[2.5rem]  /* Large screen size: font size 30px, line height 40px */
+           xl:text-[2rem] xl:leading-[2.5rem]; /* Extra Large screen size: font size 32px, line height 40px */
+  }
+
+  .text-2 {
+    @apply text-[1rem] leading-[1.5rem]              /* Base font size 16px, line height 24px (1.5 line-height ratio) */
+           md:text-[1.125rem] md:leading-[1.75rem]   /* Medium screen size: font size 18px, line height 28px */
+           lg:text-[1.1875rem] lg:leading-[1.875rem] /* Large screen size: font size 19px, line height 30px */
+           xl:text-[1.25rem] xl:leading-[2rem]; /* Extra Large screen size: font size 20px, line height 32px */
+  }
+}

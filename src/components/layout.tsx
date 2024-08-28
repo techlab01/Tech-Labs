@@ -1,21 +1,27 @@
 import React from "react";
-import Header from "./header";
+import Header from "./navBar";
+import Footer from "./footer";
+import ContactInfo from "./contactInfo";
+
 type propsType = {
   children: React.ReactNode;
   showHeader?: boolean;
+  showContactInfo?: boolean;
   showFooter?: boolean;
-  className?: string;
 };
+
 const MainLayout = ({
   children,
   showHeader = true,
+  showContactInfo = true,
   showFooter = true,
-  className,
 }: propsType) => {
   return (
-    <main className={`${className} relative bg-bg-color`}>
+    <main className="relative bg-white overflow-hidden font-kumbh">
       {showHeader && <Header />}
-      {children}
+      <div className="relative z-10">{children}</div>
+      {showContactInfo && <ContactInfo />}
+      {showFooter && <Footer />}
     </main>
   );
 };

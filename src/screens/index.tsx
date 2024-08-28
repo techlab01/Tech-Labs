@@ -1,4 +1,5 @@
-export * from "./hero";
+export * from "./home";
+
 export * from "./reach";
 export * from "./aboutUs";
 export * from "./carousel";

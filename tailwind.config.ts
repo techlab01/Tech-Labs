@@ -9,14 +9,25 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        kumbh: ['"Kumbh Sans"', "sans-serif"],
+      },
       colors: {
-        "bg-color": "#E8EEEB",
-        "dark-blue": "#223C77",
-        "dark-orange": "#F7991D",
+        white: "#FFFFFF",
+        blue: {
+          DEFAULT: "#233B77",
+          light: "#EDFAFF",
+        },
+        orange: "#F79913",
+        dark: "#323232",
+        red: "#EC1A23",
       },
       padding: {
         horizontal: "clamp(20px, 6.43vw, 111px)", // min 20px, max 111px
         vertical: "clamp(20px, 6.43vw, 111px)", // min 20px, max 111px
+      },
+      fontSize: {
+        header1: "clamp(36px, 4.166vw, 64px)",
       },
     },
   },
