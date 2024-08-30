@@ -22,3 +22,12 @@ export type feedbackDetailsType = {
   image: string;
   description: string;
 };
+
+export type affiliateImageType = string[];
+
+export type aboutUsImageType = string[];
+
+export type solutionType = {
+  icon: string;
+  title: string;
+};

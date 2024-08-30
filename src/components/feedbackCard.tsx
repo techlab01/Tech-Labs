@@ -1,52 +1,45 @@
 import React from "react";
 import Image from "next/image";
+import { feedbackDetails } from "../constants";
+import { quotesIcon } from "../utils";
 
-interface FeedbackProps {
-  name?: string;
-  description?: string;
-  image: string;
-  school?: string;
-}
+type FeedbackCardType = {
+  className?: string;
+};
 
-const FeedbackCard: React.FC<FeedbackProps> = ({
-  name,
-  description,
-  image,
-  school,
-}) => {
+const FeedbackCard: React.FC<FeedbackCardType> = ({ className }) => {
   return (
-    <div className="relative flex flex-col text-justify items-center justify-start gap-4 text-white rounded-[30px] bg-dark-blue p-8 feedback-card">
-      <div className="absolute -top-10 z-20 flex justify-center w-full">
-        <div className="relative h-28 w-28">
+    <div className={`${className} h-full`}>
+      {feedbackDetails.map((feedback, index) => (
+        <div key={index} className="flex gap-6 relative">
+          <div className="flex flex-col justify-between gap-4 items-start z-0 rounded-xl border border-blue p-10">
+            <p className="text-left text-base line-clamp-3">
+              {feedback.description}
+            </p>
+            <div className="flex items-end justify-center gap-4 text-blue">
+              <p className="text-3xl">{feedback.name}</p>
+              <p className="text-base">{feedback.school}</p>
+            </div>
+          </div>
+
           <Image
-            src={image}
-            alt={`${image}-alt`}
-            layout="fill"
-            className="rounded-full object-cover border-4 border-white"
+            src={quotesIcon}
+            alt="quotes-icon"
+            width={20}
+            height={20}
+            className="h-12 w-12 absolute z-10 transform -translate-x-1/2 left-0"
           />
+          <div className="flex items-center">
+            <Image
+              src={feedback.image}
+              alt={feedback.name}
+              width={100}
+              height={100}
+              className="rounded-xl object-cover h-full w-full"
+            />
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center text-center mt-16">
-        <div className="text-xl sm:text-2xl text-dark-orange">{name}</div>
-        <div className="sm:text-lg text-justify text-md text-dark-orange">
-          {school}
-        </div>
-        <div className="flex gap-2 justify-center items-center my-2">
-          {Array(5)
-            .fill(0)
-            .map((_, index) => (
-              <Image
-                key={index}
-                src="/star-icon.svg"
-                alt="star"
-                width={20}
-                height={20}
-                className="object-cover h-4 w-4"
-              />
-            ))}
-        </div>
-        <div className="sm:text-base text-left text-sm">{description}</div>
-      </div>
+      ))}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import CustomSection from "../section/section";
-import CarouselComponent from "../components/carousel";
+import CarouselComponent from "../components/feedbackCarousel";
 
 type CarouselProps = {
   id: string;

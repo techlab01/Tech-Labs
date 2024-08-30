@@ -29,6 +29,9 @@ const config: Config = {
       fontSize: {
         header1: "clamp(36px, 4.166vw, 64px)",
       },
+      lineClamp: {
+        11: "11",
+      },
     },
   },
   plugins: [],

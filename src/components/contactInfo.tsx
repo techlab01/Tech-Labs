@@ -2,35 +2,31 @@ import Image from "next/image";
 import { addressDetails, contactDetails } from "../constants";
 import { locationIcon, mailIcon, mobileIcon } from "../utils";
 
-export default function ContactInfo() {
+const ContactInfo = () => {
   return (
     <section className="bg-blue-light common-padding">
       <div className="screen-max-width">
         <div className="flex flex-col justify-between gap-20 lg:flex-row-reverse">
           {/* Contact form */}
-          <form className="w-full lg:w-[30%] flex flex-col gap-5">
+          <form className="w-full flex flex-col gap-5 lg:w-[50%] xl:w-[30%]">
             <p className="header-1">Let&apos;s Connect!</p>
             <div className="flex flex-col gap-4">
               <p className="text-1">Enter Your Details.</p>
-              <input
-                type="text"
-                placeholder="Name"
-                className="w-full bg-white text-dark text-sm md:text-base py-2 px-4 rounded-xl border border-none outline-none mb-2"
-              />
+              <input type="text" placeholder="Name" className="form-fields" />
               <input
                 type="number"
                 placeholder="Contact Number"
-                className="w-full bg-white text-dark text-sm md:text-base py-2 px-4 rounded-xl border border-none outline-none mb-2"
+                className="form-fields"
               />
               <input
                 type="email"
                 placeholder="Email ID"
-                className="w-full bg-white text-dark text-sm md:text-base py-2 px-4 rounded-xl border border-none outline-none mb-2"
+                className="form-fields"
               />
               <textarea
                 rows={2}
                 placeholder="Enter you queries here"
-                className="w-full bg-white text-dark text-sm md:text-base py-2 px-4 rounded-xl border border-none outline-none mb-2"
+                className="form-fields"
               />
             </div>
             <button
@@ -41,7 +37,7 @@ export default function ContactInfo() {
             </button>
           </form>
 
-          <div className="w-full lg:w-[70%] h-full flex flex-col justify-between gap-20 md:flex-row">
+          <div className="w-full h-full flex flex-col justify-between gap-20 lg:w-[50%] xl:flex-row xl:w-[70%]">
             {/* Contact details */}
             <div className="flex flex-col gap-10">
               {contactDetails.map((item, index) => (
@@ -109,4 +105,6 @@ export default function ContactInfo() {
       </div>
     </section>
   );
-}
+};
+
+export default ContactInfo;
