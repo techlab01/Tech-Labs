@@ -31,11 +31,18 @@
     @apply w-full bg-white text-dark text-sm md:text-base py-2 px-4 rounded-xl border border-none outline-none mb-2;
   }
 
+  .primary-btn {
+    @apply bg-blue px-8 py-2 text-white text-base rounded-xl shadow-sm;
+  }
+
+  /* .header-1 {
+    @apply font-semibold text-[2.25rem] leading-[2.875rem]     
+                        md:text-[2.75rem] md:leading-[3.75rem] 
+                        lg:text-[4rem] lg:leading-[5rem]       
+                        xl:text-[4rem] xl:leading-[4.5rem];
+  } */
   .header-1 {
-    @apply font-semibold text-[2.25rem] leading-[2.875rem]     /* Base font size 36px, line height 46px (approximately 1.27) */
-                        md:text-[2.75rem] md:leading-[3.75rem] /* Medium screen size: font size 44px, line height 60px */
-                        lg:text-[4rem] lg:leading-[5rem]       /* Large screen size: font size 64px, line height 80px */
-                        xl:text-[4rem] xl:leading-[4.5rem]; /* Extra Large screen size: Adjusted as needed */
+    @apply font-semibold text-header1;
   }
 
   .header-2 {

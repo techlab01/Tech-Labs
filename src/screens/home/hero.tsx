@@ -25,9 +25,7 @@ const Hero = () => {
             <p className="text-base w-full py-4">
               Empowering Minds, Shaping Futures.
             </p>
-            <button className="bg-blue px-8 py-2 text-white text-base rounded-xl shadow-sm">
-              Learn More
-            </button>
+            <button className="primary-btn">Learn More</button>
           </div>
 
           {/* Hero Image */}

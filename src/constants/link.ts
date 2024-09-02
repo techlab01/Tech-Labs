@@ -1,4 +1,9 @@
-import { footerLinkType, navListsType, socialsType } from "../types";
+import {
+  footerLinkType,
+  navListsType,
+  socialsType,
+  urlListType,
+} from "../types";
 import { facebook, instagram, linkdin, twitter } from "../utils";
 
 export const navLists: navListsType[] = [
@@ -22,3 +27,10 @@ export const socials: socialsType[] = [
   { icon: facebook, link: "" },
   { icon: linkdin, link: "" },
 ];
+
+export const urlList: urlListType = {
+  aboutUs: "/aboutUs",
+  pmShri: "/pmShri",
+  atl: "/atl",
+  services: "/services",
+};

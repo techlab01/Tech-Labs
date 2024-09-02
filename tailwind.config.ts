@@ -27,7 +27,7 @@ const config: Config = {
         vertical: "clamp(20px, 6.43vw, 111px)", // min 20px, max 111px
       },
       fontSize: {
-        header1: "clamp(36px, 4.166vw, 64px)",
+        header1: "clamp(2.25rem, 1.84615rem + 1.79487vw, 4rem)",
       },
       lineClamp: {
         11: "11",
