@@ -10,7 +10,7 @@ const Testimonial = () => {
           <p className="header-1">Our Testimonials</p>
         </div>
         <FeedbackCarousel className="lg:hidden screen-max-width" />
-        <FeedbackCard className="hidden lg:block" />
+        <FeedbackCard />
       </div>
     </section>
   );
