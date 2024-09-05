@@ -31,6 +31,9 @@ export const socials: socialsType[] = [
 export const urlList: urlListType = {
   aboutUs: "/aboutUs",
   pmShri: "/pmShri",
+  contactUs: "/contactUs",
   atl: "/atl",
   services: "/services",
+  atlWebsite: "https://aim.gov.in/atl.php",
+  pmShriWebsite: "https://pmshrischools.education.gov.in/",
 };

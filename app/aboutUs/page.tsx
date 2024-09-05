@@ -16,6 +16,7 @@ export default function AboutUs() {
         content={aboutUsContent.whoAreWe}
         disableButton
         noImage
+        showBg={true}
       />
       <Banner
         bannerImg={aboutUsContent.bannerImg}

@@ -20,7 +20,7 @@
   }
 
   .nav-height {
-    @apply h-full md:h-[calc(100vh-60px)];
+    @apply h-[calc(100vh-60px)];
   }
 
   .title-text {
@@ -65,4 +65,23 @@
            lg:text-[1.1875rem] lg:leading-[1.875rem] /* Large screen size: font size 19px, line height 30px */
            xl:text-[1.25rem] xl:leading-[2rem]; /* Extra Large screen size: font size 20px, line height 32px */
   }
+}
+
+.wrapper {
+  width: 240vw;
+  height: 100%;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* .wrapper::after {
+  width: 100vw;
+  height: 48px;
+  position: absolute;
+} */
+
+.boxes {
+  position: relative;
+  left: -2680px;
 }

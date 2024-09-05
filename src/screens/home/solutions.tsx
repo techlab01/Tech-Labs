@@ -3,8 +3,8 @@ import { solutions } from "@/src/constants";
 
 const Solutions = () => {
   return (
-    <section className="bg-white common-padding w-full">
-      <div className="screen-max-width">
+    <section className="bg-white w-full">
+      <div className="screen-max-width pt-20 px-10 sm:pt-32 sm:px-20">
         <div className="flex-center flex-col w-full gap-20">
           <div className="flex flex-col text-center gap-6">
             <p className="text-orange header-1">Our Progressive Solutions</p>
@@ -13,7 +13,7 @@ const Solutions = () => {
               journey and empower you to achieve more.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 gap-y-10 w-full">
+          <div className="grid grid-cols-2 gap-4 gap-y-10 w-full lg:hidden pb-20">
             {solutions.map((item, index) => (
               <div
                 key={index}
@@ -32,6 +32,13 @@ const Solutions = () => {
               </div>
             ))}
           </div>
+          <Image
+            alt={`image`}
+            src={`/svg/solutions-img.jpg`}
+            height={800}
+            width={800}
+            className="w-full lg:w-[80%] h-full object-cover hidden lg:block"
+          />
         </div>
       </div>
     </section>

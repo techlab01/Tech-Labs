@@ -1,8 +1,8 @@
 import React from "react";
 
-type CommonSection = {
+type CommonSectionProps = {
   header: string;
-  content: string;
+  content: string | string[];
   className?: string;
   key?: number;
   buttonText?: string;
@@ -12,7 +12,7 @@ type CommonSection = {
   reverseRow?: boolean;
 };
 
-const CommonSection: React.FC<CommonSection> = ({
+const CommonSection: React.FC<CommonSectionProps> = ({
   header,
   content,
   onBtnClick,
@@ -37,7 +37,17 @@ const CommonSection: React.FC<CommonSection> = ({
           {/* text */}
           <div className="w-full flex items-start gap-6 flex-col lg:w-1/2">
             <p className="text-orange header-1 w-full">{header}</p>
-            <p className="text-1 w-full">{content}</p>
+            {Array.isArray(content) ? (
+              <ul className="list-disc list-outside gap-6 flex flex-col">
+                {content.map((text, index) => (
+                  <li key={index} className="text-1 w-full">
+                    {text}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-1 w-full">{content}</p>
+            )}
             {!disableButton && (
               <button className="primary-btn" onClick={onBtnClick}>
                 {buttonText}
@@ -46,7 +56,7 @@ const CommonSection: React.FC<CommonSection> = ({
           </div>
 
           {/* image */}
-          <div className="w-full lg:w-1/2">{children}</div>
+          <div className="w-full h-full lg:w-1/2">{children}</div>
         </div>
       </div>
     </section>

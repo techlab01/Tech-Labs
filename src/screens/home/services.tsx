@@ -14,7 +14,7 @@ const Services = () => {
             <p className="text-1 w-full">{homeContent.services}</p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((item, index) => (
               <div key={index} className="relative w-full">
                 <Image

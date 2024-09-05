@@ -44,6 +44,9 @@ export type collaborateContentType = {
   conclusion: string;
   pointsHeader: string;
   pointsContent: string;
+  visionHeader: string;
+  visionContent: string[];
+  outcome: string[];
 };
 
 // Button text

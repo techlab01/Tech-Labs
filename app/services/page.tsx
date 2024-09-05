@@ -43,6 +43,7 @@ export default function Services() {
         buttonText={buttonText.explore}
         disableButton
         noImage
+        showBg={true}
       />
       <Banner
         bannerImg={servicesContent.bannerImg}

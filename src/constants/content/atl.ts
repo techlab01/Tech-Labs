@@ -14,6 +14,17 @@ export const atlContent: collaborateContentType = {
   pointsHeader: "Our Artery with ATL Labs",
   pointsContent:
     "Our approach aligns to create a network of schools that set benchmarks in quality education.",
+  outcome: [
+    "The objective of this scheme is to foster curiosity, creativity, and imagination in young minds; and inculcate skills such as design mindset, computational thinking, adaptive learning, physical computing etc. ",
+    "Under the able guidance of NITI Aayog, Atal Tinkering Labs have been launched as an initiative to foster creativity, curiosity and innovation amongst young students of India.",
+  ],
+  visionHeader: "Vision and Objectives",
+  visionContent: [
+    "To promote a culture of scientific innovation and entrepreneurship at a young age amongst students across India.",
+    "To provide students with the equipment and tools required for hands-on learning in STEM.",
+    "Encourage children to work with real-life challenges and projects to improve their problem-solving skills.",
+    "A multidisciplinary approach is fostered by combining concepts from different STEM fields to develop comprehensive solutions.",
+  ],
 };
 
 export const atlPoints = [

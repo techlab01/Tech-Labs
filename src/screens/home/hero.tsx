@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { heroBg } from "@/src/utils";
+import { heroBg, mobileBg } from "@/src/utils";
 
 const Hero = () => {
   return (
@@ -9,7 +9,12 @@ const Hero = () => {
         <Image
           src={heroBg}
           alt="hero-bg"
-          className="h-full w-full absolute object-cover top-0 left-0 z-0"
+          className="h-full w-full hidden lg:block absolute object-cover top-0 left-0 z-0"
+        />
+        <Image
+          src={mobileBg}
+          alt="hero-mobile-bg"
+          className="h-full w-full block lg:hidden absolute object-cover top-0 left-0 z-0"
         />
 
         <div className="h-5/6 w-full z-10 flex flex-col items-start justify-between md:flex-row md:items-center screen-max-width relative">

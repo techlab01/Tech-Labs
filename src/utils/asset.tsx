@@ -1,8 +1,12 @@
 import heroBgSvg from "../../public/svg/hero-bg.svg";
+import hero2BgSvg from "../../public/svg/hero-2-bg.svg";
+import mobileBgSvg from "../../public/svg/mobile-hero.svg";
 import heroVector from "../../public/svg/hero-vector.svg";
 import reachVector from "../../public/svg/reach-map.svg";
 
 export const heroBg = heroBgSvg;
+export const heroBg2 = hero2BgSvg;
+export const mobileBg = mobileBgSvg;
 export const heroImg = heroVector;
 export const reachMap = reachVector;
 

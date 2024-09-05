@@ -1,32 +1,95 @@
+"use client";
+import { useState, FormEvent } from "react";
 import Image from "next/image";
 import { addressDetails, contactDetails } from "../constants";
 import { locationIcon, mailIcon, mobileIcon } from "../utils";
 
+interface FormData {
+  name: string;
+  contactNumber: string;
+  email: string;
+  message: string;
+}
+
 const ContactInfo = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    contactNumber: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    const mailtoLink = `mailto:nandu@techlabscience.com?subject=Contact%20Form%20Submission&body=Name: ${encodeURIComponent(
+      formData.name
+    )}%0AContact Number: ${encodeURIComponent(
+      formData.contactNumber
+    )}%0AEmail: ${encodeURIComponent(
+      formData.email
+    )}%0AMessage: ${encodeURIComponent(formData.message)}`;
+
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section className="bg-blue-light common-padding">
       <div className="screen-max-width">
         <div className="flex flex-col justify-between gap-20 lg:flex-row-reverse">
           {/* Contact form */}
-          <form className="w-full flex flex-col gap-5 lg:w-[50%] xl:w-[30%]">
+          <form
+            className="w-full flex flex-col gap-5 lg:w-[50%] xl:w-[30%]"
+            onSubmit={handleSubmit}
+          >
             <p className="header-1">Let&apos;s Connect!</p>
             <div className="flex flex-col gap-4">
               <p className="text-1">Enter Your Details.</p>
-              <input type="text" placeholder="Name" className="form-fields" />
               <input
-                type="number"
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="form-fields"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                name="contactNumber"
                 placeholder="Contact Number"
                 className="form-fields"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                required
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email ID"
                 className="form-fields"
+                value={formData.email}
+                onChange={handleChange}
+                required
               />
               <textarea
+                name="message"
                 rows={2}
-                placeholder="Enter you queries here"
+                placeholder="Enter your queries here"
                 className="form-fields"
+                value={formData.message}
+                onChange={handleChange}
+                required
               />
             </div>
             <button
@@ -79,23 +142,21 @@ const ContactInfo = () => {
                 >
                   <p className="text-2xl text-orange">{item.title}</p>
                   <div className="flex flex-col gap-10">
-                    {item?.address?.map((subItem) => {
-                      return (
-                        <span
-                          key={subItem}
-                          className="flex text-2 items-start justify-start gap-4"
-                        >
-                          <Image
-                            alt="location-icon"
-                            src={locationIcon}
-                            width={20}
-                            height={20}
-                            className="h-5 w-5"
-                          />
-                          {subItem}
-                        </span>
-                      );
-                    })}
+                    {item?.address?.map((subItem) => (
+                      <span
+                        key={subItem}
+                        className="flex text-2 items-start justify-start gap-4"
+                      >
+                        <Image
+                          alt="location-icon"
+                          src={locationIcon}
+                          width={20}
+                          height={20}
+                          className="h-5 w-5"
+                        />
+                        {subItem}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}

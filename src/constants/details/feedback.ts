@@ -50,3 +50,12 @@ export const feedbackDetails: feedbackDetailsType[] = [
       "I am pleased to commend Techlab for their exceptional support in providing laptops and furniture to GHS Sirsi. Their contributions have significantly enhanced our learning environment, offering our students and faculty modern and efficient tools for education. The quality of the products and the professionalism of their service have been outstanding. We are grateful for their dedication to improving educational facilities and look forward to continued collaboration.",
   },
 ];
+
+export const feedcard = [
+  "/testi/Testimonial-1.svg",
+  "/testi/Testimonial-2.svg",
+  "/testi/Testimonial-3.svg",
+  "/testi/Testimonial-4.svg",
+  "/testi/Testimonial-5.svg",
+  "/testi/Testimonial-6.svg",
+];

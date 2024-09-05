@@ -47,7 +47,7 @@ const Collaborate = () => {
               institutions of excellence
             </p>
           </div>
-          <div className="w-full flex gap-5 overflow-hidden">
+          <div className="w-full gap-5 overflow-hidden hidden lg:flex">
             <div
               ref={(el) => {
                 if (el) cardRefs.current[0] = el;
@@ -111,6 +111,55 @@ const Collaborate = () => {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="w-full gap-10 flex flex-col lg:hidden">
+            <div className="w-full flex items-start bg-blue-light gap-8 p-10 rounded-2xl flex-col">
+              <Image
+                src={pmShriLogo}
+                alt="PM Shri"
+                width={100}
+                height={100}
+                className="h-20 w-40"
+              />
+
+              <p className="text-orange header-2 w-full line-clamp-1">
+                PM Shri
+              </p>
+              <p className="text-2">
+                PM SHRI School is a centrally sponsored scheme by the Government
+                of India. This initiative is intended to develop more than 14500
+                PM SHRI Schools.
+              </p>
+              <button
+                className="primary-btn line-clamp-1"
+                onClick={() => router.push(urlList.pmShri)}
+              >
+                Learn More
+              </button>
+            </div>
+            <div className="w-full flex items-start bg-blue-light gap-8 p-10 rounded-2xl flex-col">
+              <Image
+                src={atlLogo}
+                alt="ATL Labs"
+                width={100}
+                height={100}
+                className="h-20 w-40"
+              />
+              <p className="text-orange header-2 w-full line-clamp-1">
+                ATL Labs
+              </p>
+              <p className="text-2">
+                ATL is a workspace where young minds can give shape to their
+                ideas through hands-on do-it-yourself mode and learn innovation
+                skills.
+              </p>
+              <button
+                onClick={() => router.push(urlList.atl)}
+                className="primary-btn line-clamp-1"
+              >
+                Learn More
+              </button>
             </div>
           </div>
         </div>
