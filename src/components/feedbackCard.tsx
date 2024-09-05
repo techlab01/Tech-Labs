@@ -95,7 +95,7 @@ const FeedCardSection = () => {
   const row2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const animateRow = (rowRef) => {
+    const animateRow = (rowRef: React.RefObject<HTMLDivElement>) => {
       const row = rowRef.current;
       if (row) {
         gsap.to(row, {
