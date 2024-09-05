@@ -38,7 +38,8 @@ export const animateSingleCard = (
         opacity: isVisible ? 1 : 0,
         duration: 0.75,
         display: isVisible ? "block" : "none",
-        rotationY: 0,
+        rotationY: isVisible ? 0 : 90,
+        ease: "power2.out",
       });
     }
   });
