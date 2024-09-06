@@ -3,16 +3,10 @@ import { useState, FormEvent } from "react";
 import Image from "next/image";
 import { addressDetails, contactDetails } from "../constants";
 import { locationIcon, mailIcon, mobileIcon } from "../utils";
-
-interface FormData {
-  name: string;
-  contactNumber: string;
-  email: string;
-  message: string;
-}
+import { formData } from "../types";
 
 const ContactInfo = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<formData>({
     name: "",
     contactNumber: "",
     email: "",
@@ -108,7 +102,9 @@ const ContactInfo = () => {
                   key={index}
                   className="flex flex-col justify-between gap-2"
                 >
-                  <p className="text-2xl text-orange">{item.name}</p>
+                  <p className="text-2xl text-orange font-semibold">
+                    {item.name}
+                  </p>
                   <span className="flex text-base md:text-xl items-center justify-start gap-3">
                     <Image
                       alt="mobile-icon"
@@ -140,7 +136,9 @@ const ContactInfo = () => {
                   key={index}
                   className="flex flex-col justify-between gap-2"
                 >
-                  <p className="text-2xl text-orange">{item.title}</p>
+                  <p className="text-2xl text-orange font-semibold">
+                    {item.title}
+                  </p>
                   <div className="flex flex-col gap-10">
                     {item?.address?.map((subItem) => (
                       <span

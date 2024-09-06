@@ -35,8 +35,8 @@ const Solutions = () => {
           <Image
             alt={`image`}
             src={`/svg/solutions-img.jpg`}
-            height={800}
-            width={800}
+            height={1000}
+            width={1000}
             className="w-full lg:w-[80%] h-full object-cover hidden lg:block"
           />
         </div>

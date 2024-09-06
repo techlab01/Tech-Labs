@@ -21,13 +21,18 @@ const AboutUs = () => {
 
       if (!ref) return;
 
+      // Decide randomly whether to flip vertically or horizontally
+      const flipDirection = Math.random() > 0.5 ? "Y" : "X"; // Randomly choose between X or Y axis
+
+      // First flip animation
       await gsap.to(ref, {
-        rotateY: 90,
+        [`rotate${flipDirection}`]: 90, // Dynamically set the axis of rotation
         duration: 0.3,
         onComplete: () => {
           const newImages = [...currentImages];
           let newImage;
 
+          // Ensure new image is not already in the current images
           do {
             newImage =
               aboutPageImages[
@@ -41,16 +46,19 @@ const AboutUs = () => {
         },
       });
 
+      // Second flip animation (back to original state)
       await gsap.to(ref, {
-        rotateY: 0,
+        [`rotate${flipDirection}`]: 0, // Dynamically set the axis of rotation
         duration: 0.3,
       });
     };
 
+    // Set interval to flip images periodically
     const intervalId = setInterval(() => {
       flipRandomImage();
     }, 2000);
 
+    // Cleanup on component unmount
     return () => clearInterval(intervalId);
   }, [currentImages]);
 

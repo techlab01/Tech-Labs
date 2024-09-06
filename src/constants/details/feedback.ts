@@ -52,10 +52,10 @@ export const feedbackDetails: feedbackDetailsType[] = [
 ];
 
 export const feedcard = [
-  "/testi/Testimonial-1.svg",
-  "/testi/Testimonial-2.svg",
-  "/testi/Testimonial-3.svg",
-  "/testi/Testimonial-4.svg",
-  "/testi/Testimonial-5.svg",
-  "/testi/Testimonial-6.svg",
+  "/testimonial/Testimonial-1.svg",
+  "/testimonial/Testimonial-2.svg",
+  "/testimonial/Testimonial-3.svg",
+  "/testimonial/Testimonial-4.svg",
+  "/testimonial/Testimonial-5.svg",
+  "/testimonial/Testimonial-6.svg",
 ];

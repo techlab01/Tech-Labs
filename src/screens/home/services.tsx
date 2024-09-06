@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { services } from "@/src/constants";
+import { services, urlList } from "@/src/constants";
 import { homeContent, homeHeader } from "@/src/constants";
+import Link from "next/link";
 
 const Services = () => {
   return (
@@ -16,18 +17,20 @@ const Services = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((item, index) => (
-              <div key={index} className="relative w-full">
-                <Image
-                  alt={`service-image-${index}`}
-                  src={item.img}
-                  height={400}
-                  width={400}
-                  className="w-full h-72 object-cover rounded-3xl"
-                />
-                <div className="absolute bg-blue text-white w-1/2 text-center p-2 rounded-t-xl bottom-0 -translate-x-1/2 left-1/2">
-                  {item.title}
+              <Link key={index} href={urlList.services}>
+                <div className="relative w-full">
+                  <Image
+                    alt={`service-image-${index}`}
+                    src={item.img}
+                    height={400}
+                    width={400}
+                    className="w-full h-72 object-cover rounded-3xl"
+                  />
+                  <div className="absolute bg-blue text-white w-1/2 text-center p-2 rounded-t-xl bottom-0 -translate-x-1/2 left-1/2">
+                    {item.title}
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

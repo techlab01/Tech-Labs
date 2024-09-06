@@ -1,2 +1,2 @@
 export * from "./home";
-export * from "./carousel";
+export * from "./aboutUs";

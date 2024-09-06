@@ -1,16 +1,5 @@
 import React from "react";
-
-type CommonSectionProps = {
-  header: string;
-  content: string | string[];
-  className?: string;
-  key?: number;
-  buttonText?: string;
-  onBtnClick?: () => void;
-  children?: React.ReactNode;
-  disableButton?: boolean;
-  reverseRow?: boolean;
-};
+import { CommonSectionProps } from "../types";
 
 const CommonSection: React.FC<CommonSectionProps> = ({
   header,
@@ -30,7 +19,7 @@ const CommonSection: React.FC<CommonSectionProps> = ({
     >
       <div className="screen-max-width">
         <div
-          className={`flex-center w-full gap-20 ${
+          className={`flex-center w-full gap-12 lg:gap-20 ${
             reverseRow ? "flex-col lg:flex-row-reverse" : "flex-col lg:flex-row"
           }`}
         >

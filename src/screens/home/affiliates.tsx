@@ -3,7 +3,7 @@ import { affiliates } from "@/src/constants";
 
 const Affiliates = () => {
   return (
-    <section className="bg-blue-light common-padding w-full">
+    <section className="bg-blue-light h-full lg:h-screen flex-center common-padding w-full">
       <div className="screen-max-width">
         <div className="flex-center flex-col lg:flex-row w-full gap-20">
           <div className="flex flex-col gap-6 w-full lg:w-1/2 ">

@@ -1,39 +1,81 @@
+"use client";
+import Contact from "@/src/components/contact";
 import MainLayout from "@/src/components/layout";
-import { addressDetails, contactDetails } from "@/src/constants";
-import { heroBg2, locationIcon, mailIcon, mobileIcon } from "@/src/utils";
+import { formData } from "@/src/types";
+import { heroBg2, techlabLogo3D } from "@/src/utils";
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState<formData>({
+    name: "",
+    contactNumber: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    const mailtoLink = `mailto:nandu@techlabscience.com?subject=Contact%20Form%20Submission&body=Name: ${encodeURIComponent(
+      formData.name
+    )}%0AContact Number: ${encodeURIComponent(
+      formData.contactNumber
+    )}%0AEmail: ${encodeURIComponent(
+      formData.email
+    )}%0AMessage: ${encodeURIComponent(formData.message)}`;
+
+    window.location.href = mailtoLink;
+  };
   return (
     <MainLayout showContactInfo={false}>
-      <section className="bg-blue-light relative common-padding">
+      <section className="bg-white relative common-padding h-full lg:nav-height">
         <Image
           src={heroBg2}
           alt="hero-bg-2"
           className="h-full w-full absolute object-cover top-0 left-0 z-0"
         />
         <div className="screen-max-width">
-          <div className="flex flex-col justify-between gap-20 ">
+          <div className="flex flex-col-reverse pt-20 justify-between items-center gap-20 lg:pt-0 lg:flex-row">
             {/* Contact form */}
-            <form className="w-[50%] flex flex-col gap-5">
+            <form
+              className="w-full lg:w-1/2 flex flex-col items-center gap-5"
+              onSubmit={handleSubmit}
+            >
               <p className="header-1">Let&apos;s Connect!</p>
-              <div className="flex flex-col gap-4">
-                <p className="text-1">Enter Your Details.</p>
-                <input type="text" placeholder="Name" className="form-fields" />
+              <div className="flex flex-col gap-4 w-full lg:w-[70%]">
+                <p className="text-1 text-center lg:text-start">
+                  Enter Your Details.
+                </p>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="form-fields !bg-blue-100"
+                />
                 <input
                   type="number"
                   placeholder="Contact Number"
-                  className="form-fields"
+                  className="form-fields !bg-blue-100"
                 />
                 <input
                   type="email"
                   placeholder="Email ID"
-                  className="form-fields"
+                  className="form-fields !bg-blue-100"
                 />
                 <textarea
-                  rows={2}
+                  rows={4}
                   placeholder="Enter you queries here"
-                  className="form-fields"
+                  className="form-fields !bg-blue-100"
                 />
               </div>
               <button
@@ -44,73 +86,17 @@ export default function ContactUs() {
               </button>
             </form>
 
-            <div className="w-full h-full flex flex-col justify-between gap-20 lg:w-[50%] xl:flex-row xl:w-[70%]">
-              {/* Contact details */}
-              <div className="flex flex-col gap-10">
-                {contactDetails.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col justify-between gap-2"
-                  >
-                    <p className="text-2xl text-orange">{item.name}</p>
-                    <span className="flex text-base md:text-xl items-center justify-start gap-3">
-                      <Image
-                        alt="mobile-icon"
-                        src={mobileIcon}
-                        width={20}
-                        height={20}
-                        className="h-5 w-5"
-                      />
-                      {item.contact}
-                    </span>
-                    <span className="flex text-base md:text-xl items-center justify-start gap-3">
-                      <Image
-                        alt="mail-icon"
-                        src={mailIcon}
-                        width={20}
-                        height={20}
-                        className="h-5 w-5"
-                      />
-                      {item.email}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Address details */}
-              <div className="flex flex-col justify-between gap-10">
-                {addressDetails.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col justify-between gap-2"
-                  >
-                    <p className="text-2xl text-orange">{item.title}</p>
-                    <div className="flex flex-col gap-10">
-                      {item?.address?.map((subItem) => {
-                        return (
-                          <span
-                            key={subItem}
-                            className="flex text-2 items-start justify-start gap-4"
-                          >
-                            <Image
-                              alt="location-icon"
-                              src={locationIcon}
-                              width={20}
-                              height={20}
-                              className="h-5 w-5"
-                            />
-                            {subItem}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="w-full h-full flex-center gap-20 lg:w-[50%]">
+              <Image
+                src={techlabLogo3D}
+                alt="techlab-logo-3d"
+                className="h-3/4 w-3/4 md:h-full md:w-full object-contain"
+              />
             </div>
           </div>
         </div>
       </section>
+      <Contact />
     </MainLayout>
   );
 }

@@ -1,18 +1,21 @@
 import heroBgSvg from "../../public/svg/hero-bg.svg";
 import hero2BgSvg from "../../public/svg/hero-2-bg.svg";
 import mobileBgSvg from "../../public/svg/mobile-hero.svg";
-import heroVector from "../../public/svg/hero-vector.svg";
+import heroVector from "../../public/svg/hero-image.svg";
 import reachVector from "../../public/svg/reach-map.svg";
+import locationMap from "../../public/svg/location-map.jpg";
 
 export const heroBg = heroBgSvg;
 export const heroBg2 = hero2BgSvg;
 export const mobileBg = mobileBgSvg;
 export const heroImg = heroVector;
 export const reachMap = reachVector;
+export const locationImg = locationMap;
 
 // logo
 import techlab from "../../public/logo/techlab-logo.svg";
 import techlabWhite from "../../public/logo/techlab-logo-white.svg";
+import techlab3D from "../../public/logo/techlab-logo-3d.svg";
 import gem from "../../public/logo/gem-logo.svg";
 import kppp from "../../public/logo/kppp-logo.svg";
 import pmShri from "../../public/logo/pm-shri-logo.svg";
@@ -22,6 +25,7 @@ import atlWhite from "../../public/logo/atl-white-logo.svg";
 
 export const techlabLogo = techlab;
 export const techlabLogoWhite = techlabWhite;
+export const techlabLogo3D = techlab3D;
 export const gemLogo = gem;
 export const kpppLogo = kppp;
 export const pmShriLogo = pmShri;
@@ -62,21 +66,6 @@ export const twitter = twitterLogo;
 export const instagram = instagramLogo;
 export const facebook = facebookLogo;
 export const linkdin = linkdinLogo;
-
-// solutions
-import basketball from "../../public/solutions/basketball.svg";
-import chair from "../../public/solutions/chair.svg";
-import gym from "../../public/solutions/gym-icon.svg";
-import palette from "../../public/solutions/palette.svg";
-import sport from "../../public/solutions/sport-icon.svg";
-import bottle from "../../public/solutions/water-bottle.svg";
-
-export const basketballIcon = basketball;
-export const gymIcon = gym;
-export const paletteIcon = palette;
-export const chairIcon = chair;
-export const sportIcon = sport;
-export const bottleIcon = bottle;
 
 // images
 import school1 from "../../public/aboutImage/school-image.jpeg";

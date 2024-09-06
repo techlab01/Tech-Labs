@@ -27,7 +27,7 @@ export default function PmShri() {
       <CommonSection
         header={pmShriContent.title}
         disableButton={true}
-        content={pmShriContent.outcome}
+        content={pmShriContent.singelOutcome}
         reverseRow
       >
         <Image
@@ -52,7 +52,6 @@ export default function PmShri() {
         />
       </CommonSection>
       <CommonSection
-        header={pmShriContent.visionHeader}
         disableButton={true}
         content={pmShriContent.visionContent.slice(2, 4)}
         reverseRow
@@ -69,12 +68,18 @@ export default function PmShri() {
         className="!bg-blue-light"
         header={pmShriContent.pointsHeader}
         disableButton={true}
-        content={pmShriContent.pointsHeader}
+        content={pmShriContent.pointsContent}
       >
         <div className="flex flex-col items-start justify-center gap-10">
           {pmShriPoints.map((item, index) => (
             <div key={index} className="flex items-center justify-start gap-6">
-              <Image alt={`dots-icon`} src={dotsIcon} height={20} width={20} />
+              <Image
+                alt={`dots-icon`}
+                className="hidden md:block"
+                src={dotsIcon}
+                height={20}
+                width={20}
+              />
               <div className="flex flex-col items-start gap-2">
                 <p className="text-1">{item.name}</p>
                 <p className="text-base">{item.point}</p>

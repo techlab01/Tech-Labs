@@ -55,7 +55,13 @@ export default function ATL() {
         <div className="flex flex-col items-start justify-center gap-10">
           {atlPoints.map((item, index) => (
             <div key={index} className="flex items-center justify-start gap-6">
-              <Image alt={`dots-icon`} src={dotsIcon} height={20} width={20} />
+              <Image
+                alt={`dots-icon`}
+                className="hidden md:block"
+                src={dotsIcon}
+                height={20}
+                width={20}
+              />
               <div className="flex flex-col items-start gap-2">
                 <p className="text-1">{item.name}</p>
                 <p className="text-base">{item.point}</p>

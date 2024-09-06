@@ -8,6 +8,13 @@ export type urlListType = {
   [key: string]: string;
 };
 
+export type formData = {
+  name: string;
+  contactNumber: string;
+  email: string;
+  message: string;
+};
+
 export type contactDetailsType = {
   name: string;
   contact: string;

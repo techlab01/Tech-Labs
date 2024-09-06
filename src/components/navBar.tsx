@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { navLists, urlList } from "../constants";
+import { buttonText, navLists, urlList } from "../constants";
 import { techlabLogo, menuIcon, closeIcon, techlabLogoWhite } from "../utils";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-
 export default function NavBar() {
   const pathname = usePathname();
   const mobileRef = useRef(null);
@@ -31,19 +30,26 @@ export default function NavBar() {
   useEffect(() => {
     if (isOpen) {
       gsap.fromTo(mobileRef.current, { y: -1000 }, { y: 0, duration: 1 });
+      // Disable body scroll when the menu is open
+      document.body.style.overflow = "hidden";
+    } else {
+      // Enable scroll when the menu is closed
+      document.body.style.overflow = "auto";
     }
   }, [isOpen]);
 
+  const isContactActive = pathname === urlList.contactUs;
+
   return (
-    <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center z-20 absolute bg-transparent">
-      <nav className="flex justify-between lg:flex-center w-full">
-        <Link href={"/"}>
+    <header className="w-full py-5 sm:px-20 px-5 flex items-center z-20 absolute bg-transparent">
+      <nav className="flex justify-between items-center lg:flex-center w-full">
+        <Link href={"/"} className={isOpen ? "z-0" : "z-50"}>
           <Image
             src={techlabLogo}
             alt="tech-lab"
             width={100}
             height={100}
-            className="h-8 w-44"
+            className="h-12 w-36"
           />
         </Link>
 
@@ -67,12 +73,12 @@ export default function NavBar() {
           className="bg-white px-8 py-3 text-blue max-lg:hidden text-base rounded-xl shadow-sm"
           onClick={() => router.push(urlList.contactUs)}
         >
-          Contact Us
+          {buttonText.contactUs}
         </button>
 
         <button
           onClick={toggleMenu}
-          className="z-50 block lg:hidden rounded-full bg-blue p-3"
+          className="z-50 fixed right-5 sm:right-20 lg:hidden rounded-full bg-blue p-3"
         >
           <Image
             src={isOpen ? closeIcon : menuIcon}
@@ -83,10 +89,12 @@ export default function NavBar() {
           />
         </button>
 
-        <div className="absolute top-0 -translate-x-1/2 left-1/2 z-40 flex h-screen w-full overflow-scroll lg:hidden">
+        <div
+          ref={mobileRef}
+          className="absolute top-0 left-0 w-full flex lg:hidden" // Make the menu fixed
+        >
           <div
-            ref={mobileRef}
-            className={`flex w-full flex-col items-start justify-start bg-blue ${
+            className={`flex flex-col items-start justify-start bg-blue w-full h-screen ${
               isOpen ? "" : "hidden"
             }`}
           >
@@ -121,6 +129,15 @@ export default function NavBar() {
                   </div>
                 );
               })}
+              <Link
+                href={urlList.contactUs}
+                className="px-5 text-3xl font-semibold text-orange flex items-center justify-center gap-4"
+              >
+                Contact Us
+                {isContactActive && (
+                  <span className="h-3 w-3 bg-orange rounded-full"></span>
+                )}
+              </Link>
             </div>
           </div>
         </div>

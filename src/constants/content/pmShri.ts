@@ -14,9 +14,8 @@ export const pmShriContent: collaborateContentType = {
   pointsHeader: "Our Artery with PM SHRI Schools",
   pointsContent:
     "We believe in nurturing not just academic success but also the overall development of students.",
-  outcome: [
+  singelOutcome:
     "Through PM Shri every student feels welcomed and cared for, where a safe and stimulating learning environment exists, where a wide range of learning experiences are offered, and where good physical infrastructure and appropriate resources conducive to learning are available  to all students",
-  ],
   visionHeader: "Vision and Objectives",
   visionContent: [
     "Transformative Education: Aim to develop model schools that serve as exemplars for quality education, integrating modern pedagogy with traditional values.",

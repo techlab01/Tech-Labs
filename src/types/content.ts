@@ -46,7 +46,8 @@ export type collaborateContentType = {
   pointsContent: string;
   visionHeader: string;
   visionContent: string[];
-  outcome: string[];
+  outcome?: string[];
+  singelOutcome?: string;
 };
 
 // Button text
@@ -54,4 +55,5 @@ export type buttonTextType = {
   learnMore: string;
   explore: string;
   knowMore: string;
+  contactUs: string;
 };

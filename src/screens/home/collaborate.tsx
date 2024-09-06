@@ -3,7 +3,12 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { atlLogo, pmShriLogo, techlabLogo } from "@/src/utils";
-import { urlList } from "@/src/constants";
+import {
+  atlContent,
+  buttonText,
+  pmShriContent,
+  urlList,
+} from "@/src/constants";
 import { useRouter } from "next/navigation";
 
 const Collaborate = () => {
@@ -64,18 +69,16 @@ const Collaborate = () => {
                 />
                 <div className="w-full flex items-start gap-6 flex-col">
                   <p className="text-orange header-2 w-full line-clamp-1">
-                    PM Shri
+                    {pmShriContent.title}
                   </p>
-                  <p className="text-2 line-clamp-2">
-                    PM SHRI School is a centrally sponsored scheme by the
-                    Government of India. This initiative is intended to develop
-                    more than 14500 PM SHRI Schools.
+                  <p className="text-2 line-clamp-3">
+                    {pmShriContent.description}
                   </p>
                   <button
                     className="primary-btn line-clamp-1"
                     onClick={() => router.push(urlList.pmShri)}
                   >
-                    Learn More
+                    {buttonText.learnMore}
                   </button>
                 </div>
               </div>
@@ -96,18 +99,16 @@ const Collaborate = () => {
                 />
                 <div className="w-full flex items-start gap-6 flex-col">
                   <p className="text-orange header-2 w-full line-clamp-1">
-                    ATL Labs
+                    {atlContent.title}
                   </p>
-                  <p className="text-2 line-clamp-2">
-                    ATL is a workspace where young minds can give shape to their
-                    ideas through hands-on do-it-yourself mode and learn
-                    innovation skills.
+                  <p className="text-2 line-clamp-3">
+                    {atlContent.description}
                   </p>
                   <button
                     onClick={() => router.push(urlList.atl)}
                     className="primary-btn line-clamp-1"
                   >
-                    Learn More
+                    {buttonText.learnMore}
                   </button>
                 </div>
               </div>
@@ -122,20 +123,12 @@ const Collaborate = () => {
                 height={100}
                 className="h-20 w-40"
               />
-
-              <p className="text-orange header-2 w-full line-clamp-1">
-                PM Shri
-              </p>
-              <p className="text-2">
-                PM SHRI School is a centrally sponsored scheme by the Government
-                of India. This initiative is intended to develop more than 14500
-                PM SHRI Schools.
-              </p>
+              <p className="text-2">{pmShriContent.description}</p>
               <button
                 className="primary-btn line-clamp-1"
                 onClick={() => router.push(urlList.pmShri)}
               >
-                Learn More
+                {buttonText.learnMore}
               </button>
             </div>
             <div className="w-full flex items-start bg-blue-light gap-8 p-10 rounded-2xl flex-col">
@@ -146,19 +139,12 @@ const Collaborate = () => {
                 height={100}
                 className="h-20 w-40"
               />
-              <p className="text-orange header-2 w-full line-clamp-1">
-                ATL Labs
-              </p>
-              <p className="text-2">
-                ATL is a workspace where young minds can give shape to their
-                ideas through hands-on do-it-yourself mode and learn innovation
-                skills.
-              </p>
+              <p className="text-2">{atlContent.description}</p>
               <button
                 onClick={() => router.push(urlList.atl)}
                 className="primary-btn line-clamp-1"
               >
-                Learn More
+                {buttonText.learnMore}
               </button>
             </div>
           </div>
