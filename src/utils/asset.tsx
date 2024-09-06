@@ -1,7 +1,7 @@
 import heroBgSvg from "../../public/svg/hero-bg.svg";
 import hero2BgSvg from "../../public/svg/hero-2-bg.svg";
 import mobileBgSvg from "../../public/svg/mobile-hero.svg";
-import heroVector from "../../public/svg/hero-image.svg";
+import heroVector from "../../public/svg/hero-vector.svg";
 import reachVector from "../../public/svg/reach-map.svg";
 import locationMap from "../../public/svg/location-map.jpg";
 
