@@ -78,7 +78,7 @@ export default function NavBar() {
 
         <button
           onClick={toggleMenu}
-          className="z-50 fixed right-5 sm:right-20 lg:hidden rounded-full bg-blue p-3"
+          className="z-50 absolute right-5 sm:right-20 lg:hidden rounded-full bg-blue p-3"
         >
           <Image
             src={isOpen ? closeIcon : menuIcon}

@@ -8,7 +8,7 @@ const Affiliates = () => {
         <div className="flex-center flex-col lg:flex-row w-full gap-20">
           <div className="flex flex-col gap-6 w-full lg:w-1/2 ">
             <p className="text-orange header-1">Our Trusted Affiliates</p>
-            <p className="text-1">
+            <p className="text-1 text-start md:text-justify">
               We pride ourselves on collaborating with a network of trusted
               affiliates who share our commitment to excellence in education.
               Together, we work to ensure that our services are not only

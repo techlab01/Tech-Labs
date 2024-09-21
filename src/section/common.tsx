@@ -29,13 +29,18 @@ const CommonSection: React.FC<CommonSectionProps> = ({
             {Array.isArray(content) ? (
               <ul className="list-disc list-outside gap-6 flex flex-col">
                 {content.map((text, index) => (
-                  <li key={index} className="text-1 w-full">
+                  <li
+                    key={index}
+                    className="text-1 w-full text-justify leading-normal"
+                  >
                     {text}
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-1 w-full">{content}</p>
+              <p className="text-1 w-full text-justify leading-relaxed hyphens-auto">
+                {content}
+              </p>
             )}
             {!disableButton && (
               <button className="primary-btn" onClick={onBtnClick}>
